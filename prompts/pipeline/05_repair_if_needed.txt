@@ -1,0 +1,20 @@
+You are repairing a partially extracted transaction JSON using the document image.
+
+Return JSON only.
+
+Input draft:
+{draft_json}
+
+Validation issues:
+{issues_json}
+
+Task:
+- Fix only the fields implicated by the validation issues.
+- Keep all other fields unchanged.
+- Do not invent values.
+- If a field cannot be repaired from visible evidence, leave it unchanged or set it to null only if clearly unsupported.
+
+Output:
+{{
+  "Transactions": [...]
+}}

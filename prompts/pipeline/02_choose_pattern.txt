@@ -1,0 +1,20 @@
+You are mapping a classified transaction to its expected movement pattern.
+
+Input:
+{classification_json}
+
+Return JSON only.
+
+Output:
+{output_schema}
+
+Rules:
+- Buy -> Security positive, Cash negative, UseSubjectInstrument false
+- Sell -> Security negative, Cash positive, UseSubjectInstrument false
+- Dividend -> Cash positive, UseSubjectInstrument true
+- Interest -> Cash positive, UseSubjectInstrument true
+- Fee -> Cash negative, UseSubjectInstrument false
+- Redemption -> Security negative, Cash positive, UseSubjectInstrument false
+- Only use SubjectInstrument when the instrument does not itself move.
+
+{relevant_field_guidance}

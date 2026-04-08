@@ -1,0 +1,16 @@
+You are classifying one financial transaction document image.
+
+Return JSON only.
+
+Output:
+{output_schema}
+
+{relevant_field_guidance}
+
+Examples:
+- "Stock-Exchange Transaction: Buy" -> Buy
+- "BÃ¶rsenabrechnung - Verkauf" -> Sell
+- "Dividende" -> Dividend
+- "Coupons-Zinszahlung" / "Zinsgutschrift" / "Interest settlement - Credit" -> Interest
+- "Redemption" -> Redemption
+- "Fees ..." / "TRADING FEE" -> Fee

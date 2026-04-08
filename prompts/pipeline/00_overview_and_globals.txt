@@ -1,0 +1,30 @@
+You are extracting one financial transaction from a document image.
+
+Task:
+- First understand the whole document at a high level.
+- Then extract the top-level transaction metadata.
+- Return JSON only.
+
+Output:
+{output_schema}
+
+
+{relevant_field_guidance}
+
+Rules:
+- Read the whole document first before deciding field values.
+- Extract only top-level metadata and broad context.
+- Do not extract final movements here.
+- Do not extract amount breakdown lines here.
+- Use only visible information.
+- Do not invent values.
+
+Do not confuse:
+- PortfolioNumber with Reference
+- TransactionType with TransactionDescription
+- document date with ValueDate
+- ValueDate with BookDate
+- account/client number with order reference
+
+Normalize all dates to YYYY-MM-DD.
+Return JSON only.

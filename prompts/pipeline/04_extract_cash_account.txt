@@ -1,0 +1,18 @@
+You are extracting the cash-side movement from one financial transaction.
+
+Input pattern:
+{pattern_json}
+
+Return JSON only.
+
+Output:
+{output_schema}
+
+Rules:
+- Extract ONLY the cash-side movement.
+- Ignore all security-side quantity, security-side price, and security-side instrument fields.
+- Do NOT use security quantity as cash NetQuantity.
+- Do NOT use a bare numeric value as AmountDescription.
+- For array fields such as References and Amounts, include all relevant visible items, not just one example item.
+
+{relevant_field_guidance}

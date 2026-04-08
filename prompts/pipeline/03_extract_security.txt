@@ -1,0 +1,19 @@
+You are extracting the security side of one financial transaction.
+
+Input pattern:
+{pattern_json}
+
+Return JSON only.
+
+Output:
+{output_schema}
+
+Rules:
+- If the pattern expects a security movement, populate SecurityMovement.
+- If the pattern uses SubjectInstrument instead, populate SubjectInstrument and return SecurityMovement = null.
+- Do not output both for the same instrument.
+- Extract only the security side.
+- Do not extract cash account or amount breakdown lines.
+- For array fields such as References, include all relevant visible items, not just one example item.
+
+{relevant_field_guidance}
