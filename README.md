@@ -24,52 +24,21 @@ This allows probabilistic LLM extraction to be combined with deterministic finan
 
 ## Architecture
 
-```text
-Transaction Document
-        │
-        ▼
-┌──────────────────────┐
-│ Global Extraction    │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Transaction          │
-│ Classification       │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Movement Pattern     │
-│ Selection            │
-└──────────┬───────────┘
-           │
-      ┌────┴─────┐
-      ▼          ▼
-┌───────────┐ ┌───────────┐
-│ Security  │ │ Cash      │
-│ Extraction│ │ Extraction│
-└─────┬─────┘ └─────┬─────┘
-      │              │
-      └──────┬───────┘
-             ▼
-┌──────────────────────┐
-│ Transaction Assembly │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Validation           │
-└──────────┬───────────┘
-           │
-     Validation errors?
-        ┌──┴──┐
-       Yes    No
-        │      │
-        ▼      ▼
-┌────────────┐ Structured
-│ Targeted   │ Transaction
-│ Repair     │
-└─────┬──────┘
-      │
-      └──────► Re-validation
+```mermaid
+flowchart TD
+    A[Transaction Document] --> B[Global Extraction]
+    B --> C[Transaction Classification]
+    C --> D[Movement Pattern Selection]
+
+    D --> E[Security Extraction]
+    D --> F[Cash Extraction]
+
+    E --> G[Transaction Assembly]
+    F --> G
+
+    G --> H[Validation]
+
+    H -->|No errors| I[Structured Transaction]
+    H -->|Errors found| J[Targeted Repair]
+
+    J --> H
